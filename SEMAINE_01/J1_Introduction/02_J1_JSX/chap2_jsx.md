@@ -199,6 +199,26 @@ const Hello = (props) => {
 
 ```
 
+## 01 Exercice
+
+Créez deux composants le premier est un conteneur ou wrapper qui structure l'affichage. Et le deuxième composant affichera les nombres suivants élevés à la puissance 3. Voyez la structure des composants ci-dessous dans le schéma. Récupérez le tableau numbers ci-après.
+
+```text
+
+- Wrapper
+  - Number <-- Component 4**3
+  - Number <-- Component 3**3
+  - Number
+```
+
+- Valeurs à élever à la puissance 3
+
+```js
+const numbers = [ 4, 3, 7 ];
+```
+
+Indication utilisez le fichier index.html vu en cours pour réaliser cet exercice.
+
 ## React dépend de deux structures de données importantes
 
 React dépend des collections **Map** et **Set** en JS. Ces collections sont basées sur un système de clé/valeur, elles sont utilisées pour des questions d'accès à des valeurs et d'optimisation. Un Set n'a pas de doublon possible par exemple. Et un map est une structure de données construite avec un système de clé/valeur.
