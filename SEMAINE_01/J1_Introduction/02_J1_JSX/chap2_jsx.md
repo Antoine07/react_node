@@ -143,7 +143,9 @@ Ils s'écrivent soit dans des cotes simples ou doubles lorsqu'on a des chaîne d
 
 const el1 = <div className="main">Main</div>;
 
-const el2 = <div style={{ backgroundColor : 'red' }}>Main</div>;
+const myClass = { backgroundColor : 'red', color : 'blue', marginTop: 5 };
+
+const el2 = <div style={myClass}>Main</div>;
 
 ```
 
