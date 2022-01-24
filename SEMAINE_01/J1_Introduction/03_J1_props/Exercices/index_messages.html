@@ -23,11 +23,11 @@
         const App = (props) => {
 
             const MESSAGES = [
-                { message: "React JS" },
-                { message: "React Native" },
-                { message: "Angular" },
-                { message: "Symfony" },
-                { message: "MongoDB" },
+                { content: "React JS" },
+                { content: "React Native" },
+                { content: "Angular" },
+                { content: "Symfony" },
+                { content: "MongoDB" },
             ];
 
             return (
@@ -39,19 +39,21 @@
 
         const Messages = (props) => {
 
-            console.log(props.messages);
+            // props.messages assignation par décomposition
+            const { messages } = props;
 
             return (
                 <div className="main">
+                    {messages.map( (m, i) => <Message key={i} message={m} />)}
                 </div>
             )
         }
 
         const Message = (props) => {
+            const { message } =props;
 
             return (
-                <div className="main">
-                </div>
+               <p>{message.content}</p>
             )
         }
 
