@@ -95,4 +95,8 @@ ReactDOM.render(
 Ré-implémentez l'horloge précédente que nous avons vue dans le chaptire sur les props, cette fois utilisez un state pour gérer le temps qui passe (h/m/s).
 
 
+## 02 Approche fonction avec un Hook
 
+1. En utilisant le Hook useState définissez un compteur qui s'incrémente toutes les secondes.
+
+2. Réalisez maintenant un compteur cyclique de période 10 (modulo 10 pour le counteur).
