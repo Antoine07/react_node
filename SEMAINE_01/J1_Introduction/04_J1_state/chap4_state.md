@@ -6,9 +6,9 @@ Il existe une autre propriété en React le **state** qui est **"mutable"**. On 
 
 ```js
 this.state = {
-    a : 1,
-    b : 2
-}
+  a: 1,
+  b: 2,
+};
 ```
 
 **Lecture du state** dans le code :
@@ -18,15 +18,11 @@ this.state.a;
 this.state.b;
 ```
 
-
-
 Ne cherchez pas à mettre à jour le state d'une autre manière. Par exemple ce qui suit n'est pas la bonne méthode ceci ne mettra pas à jour le rendu :
 
 ```js
-
 // Erroné
 this.state.a = 2;
-
 ```
 
 Pour mettre à jour le state vous devez utiliser la méthode setState, elle mettra à jour le rendu ( re-exécution, avec les classes, de la méthode render de la classe).
@@ -34,7 +30,6 @@ Pour mettre à jour le state vous devez utiliser la méthode setState, elle mett
 **Mise à jour du state** : notez que la mise à jour ci-dessous n'écrase pas la valeur "b" du state que l'on a défini précédemment, elle met à jour uniquement la valeur "a" du state. React fait ce que l'on appelle un delta avec le state initial.
 
 ```js
-
 // Correct
 this.setState({ a: 11 });
 ```
@@ -47,53 +42,66 @@ En résumé :
 this.state.maValeur;
 ```
 
-- Une fonction pour mettre à jour le state : 
+- Une fonction pour mettre à jour le state :
 
 ```js
-
-this.setState({maValeur : 'nouvelle valeur'});
+this.setState({ maValeur: "nouvelle valeur" });
 ```
 
 ## 01 Exemple complet avec une classe
 
 ```js
 class TestState extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            count: 0
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
 
-    render() {
+  render() {
+    // un settimeout s'exécute qu'une seule fois, c'est le re-render qui ré-exécutera le settimeout
+    setTimeout(() => {
+      // à chaque fois cela déclenche un re-render
+      this.setState({ count: this.state.count + 1 });
+      // ne déclenche pas de re-render
+      // this.state.count++;
+      console.log(this.state.count);
+    }, 1000);
 
-        // un settimeout s'exécute qu'une seule fois, c'est le re-render qui ré-exécutera le settimeout
-        setTimeout(() => {
-            // à chaque fois cela déclenche un re-render 
-            this.setState({ count: this.state.count + 1 });
-            // ne déclenche pas de re-render
-            // this.state.count++;
-            console.log(this.state.count);
-        }, 1000);
-
-        return (
-            <div>
-                <p>Count: {this.state.count} </p>
-            </div>
-        );
-    }
+    return (
+      <div>
+        <p>Count: {this.state.count} </p>
+      </div>
+    );
+  }
 }
 
-ReactDOM.render(
-    <TestState />,
-    document.getElementById('root')
-);
+ReactDOM.render(<TestState />, document.getElementById("root"));
 ```
 
 ## 01 Exercice Clock setinterval
 
 Ré-implémentez l'horloge précédente que nous avons vue dans le chaptire sur les props, cette fois utilisez un state pour gérer le temps qui passe (h/m/s).
 
+## Approche fonctionnelle
+
+Pour définir un state également en ayant une approche fonctionnelle, il faudra faire appel à un Hook : useState
+
+```js
+const Clock = () => {
+  const [timer, setTimer] = React.useState(new Date());
+
+  const tick = () => {
+    console.log(timer);
+    setTimeout(() => setTimer(new Date()), time);
+  };
+
+  tick();
+
+  return <p>{timer.toLocaleTimeString()}</p>;
+};
+```
 
 ## 02 Approche fonction avec un Hook
 
