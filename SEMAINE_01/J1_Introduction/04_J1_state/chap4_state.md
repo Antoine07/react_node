@@ -92,13 +92,7 @@ ReactDOM.render(
 
 ## 01 Exercice Clock setinterval
 
-Ré-implémentez l'horloge précédente que nous avons vue dans le chaptire sur les props, cette fois utilisez un state pour gérer le temps qui passe (h/m/s). Dans cette première version utiliser un setInterval
+Ré-implémentez l'horloge précédente que nous avons vue dans le chaptire sur les props, cette fois utilisez un state pour gérer le temps qui passe (h/m/s).
 
-
-## 02 Exercice Clock settimeout
-
-Ré-implémentez l'horloge précédente.
-
-Pour que le counter de l'horologe s'incrémente correctement à l'aide de settimeout, utilisez la notion du state qui, une fois qu'il change, ré-exécute le rendu.
 
 
