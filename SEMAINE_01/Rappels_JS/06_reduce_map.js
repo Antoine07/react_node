@@ -19,6 +19,9 @@ numbers.reduce((acc, curr) => {
  * multipliez par 10 chaque valeur de numbers
  */
 
+const multPer10 = numbers.map( num => num * 10);
+console.log(multPer10);
+
 /**
  * 02 Exercice
  *
@@ -26,3 +29,13 @@ numbers.reduce((acc, curr) => {
  */
 
 const notes = [{ s: 10 }, { s: 19 }, { s: 20 }];
+
+const sumNotes = notes.reduce((acc, curr) => {
+
+    console.log(acc, curr);
+
+    return acc + curr.s ;
+
+}, 0);
+
+console.log(sumNotes);
