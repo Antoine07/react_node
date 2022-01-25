@@ -29,10 +29,10 @@
     <script type="text/babel">
         const Clock = (props) => {
             let timer = new Date;
-            setInterval(() => {
-                timer = new Date;
-                console.log(timer.toLocaleTimeString());
-            }, 1000);
+            // setInterval(() => {
+            //     timer = new Date;
+            //     console.log(timer.toLocaleTimeString());
+            // }, 1000);
 
             return (
                 <div className="container " >
@@ -42,8 +42,8 @@
                 </div >
             );
         }
-
-        ReactDOM.render(<Clock />, document.getElementById('root'));
+        
+        setInterval(() => ReactDOM.render(<Clock />, document.getElementById('root')) , 1000);
     </script>
 </body>
 
