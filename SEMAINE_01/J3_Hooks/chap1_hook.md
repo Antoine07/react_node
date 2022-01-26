@@ -228,30 +228,8 @@ const Counter = () => {
 
 Notez que c'est très pratique par exemple lorsqu'on doit se désabonner d'un service pour éviter les fuites mémoires.
 
-### 01 Exercice Counter V1
 
-En n'utilisant que des Hooks et des fonctions pour définir des composants.
-
-Créez un compteur dans un composant App et y implémenter un bouton toggle qui affichera le compteur :
-
-![counter01](images/counter_useEffect01.png)
-
-Après avoir cliquer sur le bouton toggle, affichez le compteur :
-
-![counter02](images/counter_useEffect02.png)
-
-Le deuxième bouton start/restart permettra de déclencher le compteur ou de le relancer.
-
-Au démontage du composant Counter, pensez à arrêter le compteur.
-
-Dans useEffect pour récupérer l'état précédent du state utiliser la syntaxe suivante :
-
-```js
-  // Dans un useEffect setCount(count + 1) réinitilisera le state
-  setCount(count => count + 1)
-```
-
-### 02 Exercice Nettoyage (question)
+### 01 Exercice Nettoyage (question)
 
 1. Il manque quelque chose dans le code suivant pour que le compteur puisse se déclencher. Corrigez le.
 
@@ -298,6 +276,30 @@ ReactDOM.render(
 );
 </script>
 ```
+
+### 02 Exercice Counter V1
+
+En n'utilisant que des Hooks et des fonctions pour définir des composants.
+
+Créez un compteur dans un composant App et y implémenter un bouton toggle qui affichera le compteur :
+
+![counter01](images/counter_useEffect01.png)
+
+Après avoir cliquer sur le bouton toggle, affichez le compteur :
+
+![counter02](images/counter_useEffect02.png)
+
+Le deuxième bouton start/restart permettra de déclencher le compteur ou de le relancer.
+
+Au démontage du composant Counter, pensez à arrêter le compteur.
+
+Dans useEffect pour récupérer l'état précédent du state utiliser la syntaxe suivante :
+
+```js
+  // Dans un useEffect setCount(count + 1) réinitilisera le state
+  setCount(count => count + 1)
+```
+
 
 ### 03 Exercice API fetch
 
