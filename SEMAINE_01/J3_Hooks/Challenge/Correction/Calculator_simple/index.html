@@ -19,21 +19,71 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
+
+        const precision = 10;
+        const floor = (num) => Math.floor(num * precision) / precision;
+
+        const normalize = (num) => parseFloat(num.replace(',', '.'));
+
         const Calculator = (props) => {
-            const [number, setNumber] = React.useState("");
+            const [number1, setNumber1] = React.useState("");
+            const [number2, setNumber2] = React.useState("");
+            const [result, setResult] = React.useState("");
+            const [message, setMessage] = React.useState("");
 
             const handleChange = e => {
                 // value et name de l'input monté dans le DOM.
                 const { value, name, type } = e.target; // const value =  e.target.value
                 //  console.log(value, name, type);
-                setNumber(value);
+                if (name === 'number1') setNumber1(value);
+                if (name === 'number2') setNumber2(value);
+
+                setMessage("");
+            }
+
+            const add = () => {
+
+                let num1 = normalize(number1);
+                let num2 = normalize(number2);
+
+                if (isNaN(num1) || isNaN(num2)) {
+
+                    setMessage("Attention problème numérique");
+
+                    return;
+                }
+                setResult(floor(num1 + num2));
+                setNumber1("");
+                setNumber2("");
+            }
+
+            const mult = () => {
+
+                let num1 = normalize(number1);
+                let num2 = normalize(number2);
+
+                if (isNaN(num1) || isNaN(num2)) {
+
+                    setMessage("Attention problème numérique");
+
+                    return;
+                }
+                setResult(floor(num1 * num2));
+                setNumber1("");
+                setNumber2("");
             }
 
             return (
                 <div>
-                    <p>Number : {number}</p>
+                    <p>Number1 : {number1}</p>
+                    <p>Number2 : {number2}</p>
+                    {result && (<p>{result}</p>)}
+                    {message && (<p>{message}</p>)}
                     {/* value={number} ne doit pas être oublié, React doit avoir le controle total de l'élément HTML pour bien "fonctionner"*/}
-                    <p><input type="text" name="number" value={number} onChange={handleChange} /></p>
+                    <p><input type="text" name="number1" value={number1} onChange={handleChange} /></p>
+                    <p><input type="text" name="number2" value={number2} onChange={handleChange} /></p>
+                    <p><button onClick={add} >Addition</button></p>
+                    <p><button onClick={mult} >Multiplication</button></p>
                 </div>
             )
         }
