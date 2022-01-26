@@ -32,40 +32,40 @@
         const App = () => {
             return (
                 <div>
-                    <Button />
-                    <Button />
+                    <Button step={1} />
+                    <Button step={2} />
                 </div>
             )
         }
 
-        const Button = (props) => {
+        const Button = ({ step }) => {
             const [count, setCount] = React.useState(0);
-            const [message, setMessage] = React.useState("");
             const [disabled, setDisabled] = React.useState(false);
+            const [message, setMessage] = React.useState("");
 
-            // variable lié au composant
+            // référence au composant unique au montage
             const interval = React.useRef(null);
 
+            // TODO pour le dépassement des valeurs du count
             React.useEffect(() => {
-
                 if (count >= MAX_COUNTER) {
                     clearInterval(interval.current);
-                    setDisabled(false);
-                }
-
-            }, [count]);
-
-            const start = () => {
-                if(count >= MAX_COUNTER){
-
-                    setMessage("Vous avez atteint la limite");
 
                     return;
                 }
+            }, [count]);
+
+            const start = () => {
+                if (count >= MAX_COUNTER) {
+                    clearInterval(interval.current);
+                    setMessage("Vous avez atteint la limite !!");
+                    return;
+                }
                 setDisabled(true);
-                interval.current = setInterval(() => {
-                    setCount(count => count + 1);
-                }, SECOND);
+                clearInterval(interval.current); // petite sécu supplémentaire
+                interval.current = setInterval(
+                    () => setCount(count => count + step)
+                    , SECOND);
             }
 
             const stop = () => {
@@ -73,12 +73,22 @@
                 clearInterval(interval.current);
             }
 
+            const reset = () => {
+                stop();
+                setCount(0);
+                setMessage("");
+            }
+
             return (
                 <div>
-                    { message && <p>{message}</p>}
+                    {message && <p style={{ color: "red" }} >{message}</p>}
                     <p>{count}</p>
-                    <button disabled={disabled} onClick={start} >Start</button>
-                    <button disabled={!disabled} onClick={stop} >Stop</button>
+                    <p><button disabled={disabled} onClick={start} >Start (+{step})</button></p>
+                    <p><button disabled={!disabled} onClick={stop} >Stop</button></p>
+                    {count > 0 && (
+                        <p><button onClick={reset} >Reset</button></p>
+                    )}
+
                 </div>
             )
         }
