@@ -316,3 +316,18 @@ function Counter() {
   );
 }
 ```
+
+## 03 Exercice Calculator
+
+Reprendre l'exercice du Challenge avec uniquement les options suivante en utilisant un useReducer pour gérer l'état de vos states de votre composant. Le code sera à faire dans un fichier index.html comme d'habitude.
+
+```txt
+
+Resultat : 17 <- Affichage du résultat
+
+Num1 : [2]  Num2 : [15] <--  deux champs texte pour saisir vos nombres
+
+[+] <-- Additionner 
+[*] <-- Multiplier 
+[Reset]
+```
