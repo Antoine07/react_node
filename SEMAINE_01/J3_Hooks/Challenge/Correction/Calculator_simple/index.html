@@ -20,9 +20,10 @@
     <div id="root"></div>
     <script type="text/babel">
 
+        // constantes de l'application  
         const precision = 10;
         const floor = (num) => Math.floor(num * precision) / precision;
-
+        const max_operation = 2;
         const normalize = (num) => parseFloat(num.replace(',', '.'));
 
         const Calculator = (props) => {
@@ -30,6 +31,8 @@
             const [number2, setNumber2] = React.useState("");
             const [result, setResult] = React.useState("");
             const [message, setMessage] = React.useState("");
+            const [count, setCount] = React.useState(0);
+            const [total, setTotal] = React.useState(0);
 
             const handleChange = e => {
                 // value et name de l'input monté dans le DOM.
@@ -55,6 +58,8 @@
                 setResult(floor(num1 + num2));
                 setNumber1("");
                 setNumber2("");
+
+                setCount(count + 1);
             }
 
             const mult = () => {
@@ -71,10 +76,22 @@
                 setResult(floor(num1 * num2));
                 setNumber1("");
                 setNumber2("");
+
+                setCount(count + 1);
             }
+
+            React.useEffect(() => {
+                if (count >= max_operation) {
+                    // Fais de manière asynchrone ... 
+                    setMessage(`Vous avez fait encore ${count} et au total : ${count + total}`);
+                    setTotal(count + total);
+                    setCount(0);
+                }
+            }, [count]);
 
             return (
                 <div>
+                    <p>Total: {total}</p>
                     <p>Number1 : {number1}</p>
                     <p>Number2 : {number2}</p>
                     {result && (<p>{result}</p>)}

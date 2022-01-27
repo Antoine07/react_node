@@ -1,6 +1,6 @@
 # 03 sujet Challenge Calculatrice
 
-Vous allez faire une petite calculatrice les notions du cours useState, useEffect, ...
+Vous allez faire une petite calculatrice avec les notions du cours useState, useEffect, ...
 
 Oragnisez l'application comme suit dans un fichier unique.
 
@@ -8,7 +8,7 @@ Oragnisez l'application comme suit dans un fichier unique.
 index.html
 ```
 
-Créez un champ de saisi fictif et 10 boutons de 0 à 9 pour afficher dans la partie "saisie" le nombre tapé. Créez les trois boutons suivants :
+Créez deux champs de saisi permettant de définir deux nombres pour la calculatrice. Puis créez les boutons suivants :
 
 1. Un bouton + pour effectuer l'addition.
 
@@ -24,16 +24,16 @@ Implémentez également les boutons proposés dans le Wireframe ci-dessous.
 
 ```text
 
-Resultat : 17
+Resultat : 17 <- Affichage du résultat
 
-Num1 : [2]  Num2 : [15] <-- champ texte p
+Num1 : [2]  Num2 : [15] <--  deux champs texte pour saisir vos nombres
 
 [+] <-- Additionner 
 [*] <-- Multiplier 
 [Reset]
 ```
 
-Indications pour récupérez la valeur d'un champ texte dans le rendu, créez le state **number** avec sa fonction de mise à jour setNumber
+Indications pour récupérez la valeur d'un champ texte dans le rendu, créez le state **number** avec sa fonction de mise à jour setNumber, pensez à tout maîtriser avec React lors de la récupération des données et de l'affichage de celles-ci dans l'élément HTML.
 
 ```js
 <p>
