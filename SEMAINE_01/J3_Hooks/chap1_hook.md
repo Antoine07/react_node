@@ -306,7 +306,7 @@ const reducer = (state, action) => {
 }
 
 function Counter() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = React.useReducer(reducer, initialState);
   return (
     <React.Fragment>
       Counter : {state.count}
