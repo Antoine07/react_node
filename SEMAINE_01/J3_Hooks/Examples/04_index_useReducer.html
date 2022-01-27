@@ -21,7 +21,7 @@
     <script type="text/babel">
 
         // source de vérité ne pas toucher vous pouvez mettre autant de state que vous souhaitez
-        const initialState = { count: 0 };
+        const initialState = { count: 0, number1: '' };
 
         const reducer = (state, action) => {
             switch (action.type) {
@@ -32,6 +32,17 @@
                 case 'DECREMENT':
 
                     return { ...state, count: state.count - action.step };
+
+                case 'SET_NUMBER1':
+
+                    const { number1 } = action.payload;
+
+                    console.log(action)
+
+                    return {
+                        ...state,
+                        number1 : number1
+                    }
 
                 default:
                     return state;
@@ -44,13 +55,23 @@
 
             const step = 3;
 
+            const handleChange = e => {
+                const { name, value } = e.target;
+
+                const payload = { number1 : value }
+
+                dispatch({type : 'SET_NUMBER1', payload })
+            }
+ 
             return (
                 <div style={{ display: "flex" }}>
                     <div>
                         <p>Counter {state.count}</p>
                         {/* On dispatche une action dans le reducer */}
                         <button onClick={() => dispatch({ type: 'DECREMENT', step: step })}>-</button>
-                        <button onClick={() => dispatch({ type: 'INCREMENT', step: step })}>+</button>
+                        <button onClick={() => dispatch({ type: 'INCREMENT', step: step })}>+</button> 
+
+                        <p><input type="text" name="number" value={state.number1} onChange={handleChange} /></p>
                     </div>
                 </div>
             );
