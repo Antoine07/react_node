@@ -16,6 +16,10 @@ Créez un champ de saisi fictif et 10 boutons de 0 à 9 pour afficher dans la pa
 
 3. Un bouton Reset pour effacer le résultat.
 
+4. Gérez les messages d'erreur
+
+5. En utilisant le useEffect comptez le nombre d'opérations effectuées et affichez un message au bout de 10 calculs fait par l'utilisateur.
+
 Implémentez également les boutons proposés dans le Wireframe ci-dessous.
 
 ```text
