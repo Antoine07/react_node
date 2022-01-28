@@ -33,6 +33,24 @@ props.onChangeBase(e.target.value)
 
 ```
 
+Indication de code :
+
+```js
+// Dans App on aura
+const handleChange = (number, base) => {
+   // ICI la logique de votre code
+}
+
+/* ----------------------- */
+
+// Dans BaseNumberInput
+const handleChange = e => {
+  props.onChangeBase( e, 1 );
+}
+// rendu du composant BaseNumberInput
+<input type="text" onChange={handleChange} />
+```
+
 ![Conversion binary <=> decimal](./images/decimal_binary.png)
 
 ## 02 Exercice Partie 1 
